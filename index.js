@@ -90,17 +90,10 @@ function animateElement(){
       trigger: ".navigation",
       start: "top 40%",
       end: "bottom center",
-      markers: {
-        startColor: "#42a6e0",
-        endColor: "#000",
-        fontSize: "18px",
-        fontWeight: "bold",
-        indent: 20
-      },
     }
   }).
   from(".features-description", {
-    y: 80,
+    y: 50,
     opacity: 1,
     duration: 1,
   })
