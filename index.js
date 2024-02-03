@@ -1,3 +1,4 @@
+gsap.registerPlugin(ScrollTrigger);
 const mobileNav = document.getElementById("mobile-nav"); 
 const burger = document.querySelector(".burger");
 const logo = document.querySelector(".logo");
@@ -51,6 +52,7 @@ btn1.addEventListener("click", ()=>{
   featureTitle.innerText="Simple Bookmarking"
   featureDescription.innerText="Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites."
   featureImage.src = "/images/illustration-features-tab-1.svg"
+  animateElement()
 })
 
 btn2.addEventListener("click", ()=>{
@@ -60,6 +62,7 @@ btn2.addEventListener("click", ()=>{
   featureTitle.innerText="Intelligent search"
   featureDescription.innerText="Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks."
   featureImage.src = "/images/illustration-features-tab-2.svg"
+  animateElement()
 })
 
 btn3.addEventListener("click", ()=>{
@@ -69,6 +72,7 @@ btn3.addEventListener("click", ()=>{
   featureTitle.innerText="Share your bookmarks"
   featureDescription.innerText="Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button."
   featureImage.src = "/images/illustration-features-tab-3.svg"
+  animateElement()
 })
 
 document.addEventListener("scroll", ()=>{
@@ -78,3 +82,26 @@ document.addEventListener("scroll", ()=>{
     header.style.backgroundColor = "transparent";
   }
 })
+
+
+function animateElement(){
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".navigation",
+      start: "top 40%",
+      end: "bottom center",
+      markers: {
+        startColor: "#42a6e0",
+        endColor: "#000",
+        fontSize: "18px",
+        fontWeight: "bold",
+        indent: 20
+      },
+    }
+  }).
+  from(".features-description", {
+    y: 80,
+    opacity: 1,
+    duration: 1,
+  })
+}
